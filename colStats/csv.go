@@ -23,6 +23,7 @@ type statsFunc func(data []float64) float64
 
 func csv2float(r io.Reader, column int) ([]float64, error) {
 	cr := csv.NewReader(r)
+	// cr.FieldsPerRecord = -1
 	//adjust for 0 index
 	column--
 	allData, err := cr.ReadAll()
