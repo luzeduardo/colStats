@@ -19,6 +19,19 @@ func avg(data []float64) float64 {
 	return sum(data) / float64(len(data))
 }
 
+func min(data []float64) float64 {
+	var min float64
+	for i, v := range data {
+		if i == 0 {
+			min = v
+		}
+		if v <= min {
+			min = v
+		}
+	}
+	return min
+}
+
 type statsFunc func(data []float64) float64
 
 func csv2float(r io.Reader, column int) ([]float64, error) {
